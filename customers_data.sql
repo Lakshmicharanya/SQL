@@ -1,0 +1,35 @@
+CREATE DATABASE DELIVERY;
+USE DELIVERY;
+CREATE TABLE CUSTOMERS_DATA(
+CUSTOMER_ID TINYINT PRIMARY KEY,
+FIRST_NAME VARCHAR(30) NOT NULL,
+LAST_NAME VARCHAR(30) NOT NULL,
+EMAIL VARCHAR(50) NOT NULL UNIQUE,
+PH_NUM VARCHAR(10) NOT NULL UNIQUE,
+PASSWORD VARCHAR(20) NOT NULL,
+GENDER ENUM("FEMALE","MALE") NOT NULL,
+DOB DATE NOT NULL,
+CITY VARCHAR(20) NOT NULL,
+STATE VARCHAR(20) NOT NULL,
+PINCODE VARCHAR(6) NOT NULL,
+ADDRESS VARCHAR(50) NOT NULL,
+CREATED_AT DATETIME NOT NULL,
+STATUS ENUM("ACTIVE","BLOCKED","INACTIVE") NOT NULL);
+DESCRIBE CUSTOMERS_DATA;
+USE DELIVERY;
+INSERT INTO CUSTOMERS_DATA VALUES("1","Lakshmi","Charanya","lakshmicharanya@gmail.com",
+"7256786865","chinni123","FEMALE","2005-02-14","Kajuluru","kakinada","532458",
+"Aithapudi Ramalayam","2026-08-26 10:00:00","ACTIVE");
+SELECT * FROM CUSTOMERS_DATA;
+USE DELIVERY;
+
+INSERT INTO CUSTOMERS_DATA VALUES
+(2, 'Talatam', 'Vegi', 'talatamvegi@gmail.com', '7256786866', 'talatam123', 'FEMALE', '2004-05-18', 'Kakinada', 
+'Andhra Pradesh', '533001', 'Vegi Street, Kakinada', '2026-08-27 10:10:00', 'ACTIVE'),
+(3, 'Chandu', 'Siva', 'chandusiva@gmail.com', '7256786867', 'chandu123', 'MALE', 
+'2003-09-12', 'Kakinada', 'Andhra Pradesh', '533002', 'Siva Nagar, Kakinada', '2026-08-27 10:20:00', 'ACTIVE'),
+(4, 'Anala', 'Ramya', 'analaramya@gmail.com', '7256786868', 'ramya123', 'FEMALE', 
+'2005-01-25', 'Rajahmundry', 'Andhra Pradesh', '533101', 'Ramya Colony, Rajahmundry', '2026-08-27 10:30:00', 'ACTIVE'),
+(5, 'Medisetti', 'Jahnavi', 'medisettijahnavi@gmail.com', '7256786869', 'jahnavi123',
+ 'FEMALE', '2004-07-08', 'Kakinada', 'Andhra Pradesh', '533003', 'Jahnavi Road, Kakinada', '2026-08-27 10:40:00', 'ACTIVE');
+ SELECT * FROM CUSTOMERS_DATA;
