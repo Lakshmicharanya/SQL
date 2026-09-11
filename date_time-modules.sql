@@ -16,6 +16,8 @@ where comments is null;
 -- get the order details which order is not able to deliver the required date
 select * from orders
 where requireddate<>shippeddate;
+select * from orders
+where requireddate>shippeddate;
 -- find how many day taken for every delivery (in descending)
 select ordernumber,orderdate,shippeddate,datediff(orderdate,shippeddate) as delivery_time from orders
 order by delivery_time desc;

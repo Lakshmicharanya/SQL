@@ -52,10 +52,11 @@ select * from restaurants
 order by city asc, restaurant_name asc ; 
 -- Display customers alphabetically by their complete name using CONCAT().
 select concat(first_name,last_name) from customers_data;
-
 -- Display menu items from longest to shortest preparation time.
 select item_name from menu
 order by preparation_time asc;
 -- Display orders from highest to lowest discount amount.
 select * from orders
 order by discount desc;
+USE healthcare_chatbot;
+

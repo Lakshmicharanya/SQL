@@ -178,7 +178,58 @@ where order_status="delivered";
 
 Calculate the total delivery charges collected.
 Calculate the total discounts given to customers.
-Calculate the total successful payment amount and total refunded amount.
+Calculate the total successful payment amount and total refunded amount.;
+
+-- Display customer full name, restaurant name, order date, order status, and final amount for every order.
+select * from customers_data;
+select * from restaurants;
+select * from orders;
+select concat(cd.first_name," ",cd.last_name) as full_name,res.restaurant_name,ord.order_date,ord.order_status,ord.final_amount 
+from customers_data cd
+join orders ord
+on ord.customer_id=cd.customer_id
+join restaurants res+
+on res.restaurant_id=ord.restaurant_id;
+
+-- Display every order with customer name, restaurant name, delivery partner name, and order status.
+select * from customers_data;
+select * from restaurants;
+select * from orders;
+select * from delivery_partner;
+select concat(cd.first_name," ",cd.last_name),rs.restaurant_name,dp.partner_name,ord.order_status
+from customers_data cd
+inner join orders ord 
+on cd.customer_id=ord.customer_id
+inner join delivery_partner dp
+on dp.partner_id=ord.partner_id
+inner join restaurants rs
+on rs.restaurant_id=ord.restaurant_id;
+-- Display every menu item with its restaurant name and category name.
+-- Display every menu item with restaurant name, category, price, vegetarian status, and availability.
+-- Display every order item with order ID, food item name, quantity, item price, and total price.
+-- sub queries
+-- Find menu items whose price is greater than the overall average menu price.
+select * from menu;
+select * from menu
+where price>(select avg(price) from menu);
+
+-- Find restaurants whose rating is greater than the average restaurant rating.
+select * from restaurants;
+select * from restaurants 
+where rating>(select avg(rating) from restaurants);
+
+-- Find customers whose total spending is greater than the average customer spending.
+select * from payments;
+select * from payments
+where amount>(select avg(amount) from payments);
+
+select order_id,sum(amount) as total_amount from payments
+group by order_id
+having sum(amount)>(select avg(amount) from payments);
+-- Find orders whose final amount is greater than the average order amount.
+select 
+-- Find delivery partners whose joining date is earlier than the average joining date.
+
 
 
 
